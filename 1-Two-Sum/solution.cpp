@@ -1,22 +1,21 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-         int i = 0;
-         int j = nums.size() - 1;
+         unordered_multimap<int,int> m;
+         unordered_multimap<int,int>::iterator it;
          vector<int> result;
-         while(true){
-             if (nums[i] + nums[j] == target){
+         for(int i=0; i < nums.size(); i++){
+             int another = target - nums[i];
+             it = m.find(another);
+             if(it == m.end()){
+                 m.insert(make_pair(nums[i],i));
+             }
+             else{
+                 result.push_back(it->second);
                  result.push_back(i);
-                 result.push_back(j);
-                 return result;
-             }
-             else if(nums[i] + nums[j] > target){
-                 j--;
-             }
-             else if(nums[i] + nums[j] < target){
-                 i++;
+                 break;
              }
          }
-         
+         return result;
     }
 };
