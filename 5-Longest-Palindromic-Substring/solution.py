@@ -3,13 +3,12 @@ class Solution(object):
         longest_str = ""
         
         for i in range(len(s)):
-            sub = self.expand1(s, i)
-            if len(sub) > len(longest_str):
-                longest_str = sub
-        for i in range(len(s) - 1):
-            sub = self.expand2(s, i)
-            if len(sub) > len(longest_str):
-                longest_str = sub
+            sub1 = self.expand1(s, i)
+            sub2 = self.expand2(s, i)
+            if len(sub1) > len(longest_str):
+                longest_str = sub1
+            if len(sub2) > len(longest_str):
+                longest_str = sub2
         return  longest_str       
             
             
@@ -25,6 +24,8 @@ class Solution(object):
         return sub
         
     def expand2(self, s,i):
+        if i >= len(s):
+            return ""
         sub = s[i] + s[i + 1]
         l = i - 1
         r = i + 2
