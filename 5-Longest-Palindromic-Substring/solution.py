@@ -24,11 +24,11 @@ class Solution(object):
         return sub
         
     def expand2(self, s,i):
-        if i >= len(s):
-            return ""
-        sub = s[i] + s[i + 1]
         l = i - 1
         r = i + 2
+        if l >= 0 or r < len(s):
+            return ""
+        sub = s[i] + s[i + 1]
         while l >= 0 and r < len(s) and s[l] == s[r]:
             sub = s[l] + sub + s[r]
             l -= 1
