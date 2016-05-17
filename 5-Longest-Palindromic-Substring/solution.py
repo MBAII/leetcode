@@ -26,7 +26,7 @@ class Solution(object):
     def expand2(self, s,i):
         l = i - 1
         r = i + 2
-        if l >= 0 or r < len(s):
+        if l < 0 or r >= len(s):
             return ""
         sub = s[i] + s[i + 1]
         while l >= 0 and r < len(s) and s[l] == s[r]:
