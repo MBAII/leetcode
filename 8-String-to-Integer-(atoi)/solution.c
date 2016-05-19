@@ -25,10 +25,10 @@ int myAtoi(char* str) {
     while (i < l){
         if ((str[i] >= '0') && (str[i] <= '9')){
             if (((sign == 1) && (result > INT_MAX / 10)) || ((sign == 1) && (result == INT_MAX / 10) && str[i] > '7')){
-                return INT_MAX
+                return INT_MAX;
             }
             else if (((sign == -1) && (result > INT_MAX / 10)) || ((sign == -1) && (result == INT_MAX / 10) && str[i] > '8')){
-                return INT_MIN 
+                return INT_MIN;
             }
             
             result = result * 10 + str[i] - '0';
